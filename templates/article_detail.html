@@ -1,0 +1,14 @@
+{% extends '_base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <div class="article-entry">
+        <h1>{{ object.title }}</h1>
+            
+            <p>at {{ object.date }}</p>
+            <img src="{% static article.photo.url|slice:"6:" %}" class="img-thumbnail" alt="Card image cap">
+            <p>{{ object.content }}</p>
+            <p>Back to <a href="{% url 'article_list' %}">All Articles</a>.</p>
+    </div>
+{% endblock content %}
