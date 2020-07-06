@@ -1,14 +1,33 @@
-{% extends '_base.html' %}
+{% extends 'new_base.html' %}
 
 {% load crispy_forms_tags %}
 
 {% block title %}Sign Up{% endblock title %}
 
+
 {% block content %}
-<h2>Sign Up</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form|crispy }}
-        <button class="btn btn-success ml-2 btn btn-dark" type="submit">Sign up</button>
-    </form>
+    <h2>Đăng ký</h2>
+    
+
+     <div class="col-md-8">
+          <div class="widget">
+            <div class="widget-body">  
+				<form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <button class="btn btn-success ml-2 btn btn-dark" type="submit">Sign up</button>
+                </form>                       
+	        </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <h4>Đăng ký nhanh chóng, dễ dàng và miễn phí.</h4>
+        <hr>
+        <img src="http://placehold.it/400x300" alt="" class="img-fluid">
+        <p></p>            
+        <h4 class="m-t-20">Liên hệ hỗ trợ</h4>
+        <p> Nếu bạn có gặp khó khăn cần sự giúp đỡ, vui lòng liên hệ với chúng tối </p>
+        <p> <a href="#" class="btn theme-btn m-t-15">Liên hệ</a> </p>
+    </div>
 {% endblock content %}

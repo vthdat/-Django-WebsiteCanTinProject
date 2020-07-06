@@ -576,7 +576,7 @@ hr {
 .step2:after {
     background: url(../images/arrow-dotted.png);
     height: 25px;
-    right: -95%;
+    right: -200%;
     top: -15%;
 }
 

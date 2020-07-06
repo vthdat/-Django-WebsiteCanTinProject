@@ -1,12 +1,41 @@
-{% extends '_base.html' %}
+{% extends 'new_base.html' %}
 
-{% block title %}Log In{% endblock title %}
+{% load static %}
+
+{% block title %}Đăng nhập{% endblock title %}
+
+{% block load_static %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  	<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
+	<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+	<style type="text/css">
+	  #buttn{
+		  color:#fff;
+		  background-color: #ff3300;
+	  }
+	</style>
+{% endblock load_static %}
 
 {% block content %}
-    <h2>Log In</h2>
+    <div class="pen-title">
+        <h1>Login Form</h1>
+    </div>
+    
+    <div class="module form-module">
+        <div class="toggle">
+    </div>
+    <div class="form">
+    <h2>Login to your account</h2>
         <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-success ml-2 btn btn-dark" type="submit">Log In</button>
-    </form>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button class="btn btn-success ml-2 btn btn-dark" type="submit">Đăng nhập</button>
+        </form>
+        </div>
+  
+        <div class="cta">Chưa có tài khoản?<a href="{% url 'signup' %}" style="color:#f30;"> Tạo ngay!</a></div>
+    </div>
+    
 {% endblock content %}
