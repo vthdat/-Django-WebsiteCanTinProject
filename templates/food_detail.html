@@ -1,1 +1,10 @@
-<h1>Thís is food detail</h1>
+{% extends 'new_base.html' %}
+
+{% load static %}
+
+{% load humanize %}
+
+{% block title %} {{ object.food_name}} {% endblock title %}
+
+
+

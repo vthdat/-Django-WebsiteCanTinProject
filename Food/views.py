@@ -41,7 +41,7 @@ class FoodBeverageListView(ListView):
     template_name = 'custom_food_list.html'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['food_list'] = Food.objects.filter(food_type="BE")
+        context['food_list'] = Food.objects.filter(food_type='BE')
         return context
 
 class FoodSnackListView(ListView):
