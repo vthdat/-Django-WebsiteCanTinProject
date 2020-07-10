@@ -1,6 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views.generic import ListView, DetailView
 from .models import Food
+from cart.forms import CartAddFoodForm
+from cart.cart import Cart
 
 # Create your views here.
 
@@ -11,6 +13,19 @@ class FoodListView(ListView):
 class FoodDetailView(DetailView):
     model = Food
     template_name = 'food_detail.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['cart_product_form'] = CartAddFoodForm()
+        return context
+
+def food_detail(request, id):
+    food = get_object_or_404(Food, id=id, available=True)
+    cart_product_form = CartAddFoodForm()
+    return render(request, 'food_detail.html', {'food': food,
+                                                'cart_product_form': cart_product_form})
+
+    
 
 class FoodBreakfastListView(ListView):
     model = Food

@@ -6,5 +6,19 @@
 
 {% block title %} {{ object.food_name}} {% endblock title %}
 
+{% block content %}
+    <div class="product-detail">
+        <img src=" {% static food.img.url|slice:"6:" %} ">
+        <h1>{{ object.food_name }}</h1>
+        <p class="price">${{ object.price|floatformat|intcomma }}</p>
+        <form action="{% url "cart:cart_add" object.id %}" method="post">
+            {{ cart_product_form }}
+            {% csrf_token %}
+            <input type="submit" value="Add to cart">
+        </form>
+        {{ object.description|linebreaks }}
+    </div>
+{% endblock %}
+
 
 

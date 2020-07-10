@@ -1,5 +1,8 @@
 from django.urls import path
 from .views import *
+from . import views
+
+app_name = 'food'
 
 urlpatterns = [
     path('<int:pk>/', FoodDetailView.as_view(), name='food_detail'),

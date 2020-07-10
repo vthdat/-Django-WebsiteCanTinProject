@@ -1,0 +1,63 @@
+{% extends "new_base.html" %}
+
+{% load static %}
+
+{% load humanize %}
+
+{% block title %}
+    Your shopping cart
+{% endblock %}
+{% block content %}
+    <h1>Giỏ hàng của bạn</h1>
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th>Image</th>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Remove</th>
+                <th>Unit price</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in cart %}
+                {% with product=item.food %}
+                    <tr>
+                        <td>
+                            <a href="{{ product.get_absolute_url }}">
+                                <img class="img-thumbnail" width=200 height=200 src="{% static product.img.url|slice:"6:" %}">
+                            </a>
+                        </td>
+                        <td>{{ product.food_name }}</td>
+                        <td>
+                            <form action="{% url "cart:cart_add" product.id %}" method="post">
+                                {{ item.update_quantity_form.quantity }}
+                                {{ item.update_quantity_form.override }}
+                                <input type="submit" value="Update">
+                                {% csrf_token %}
+                            </form>
+                        </td>
+                        <td>
+                        <form action="{% url "cart:cart_remove" product.id %}" method="post">
+                            <input type="submit" value="Remove">
+                            {% csrf_token %}
+                        </form>
+                        </td>
+                        <td class="num">${{ item.price|floatformat|intcomma }}</td>
+                        <td class="num">${{ item.total_price|floatformat|intcomma }}</td>
+                    </tr>
+                {% endwith %}
+            {% endfor %}
+            <tr class="table-success">
+                <td>Total</td>
+                <td colspan="4"></td>
+                <td class="num">${{ cart.get_total_price }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <p class="text-ri   ght">
+        <a href="{% url "food:menu" %}" class="btn btn-info">Continue shopping</a>
+        <a href="#" class="btn btn-success">Checkout</a>
+    </p>
+{% endblock %}

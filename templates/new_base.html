@@ -41,16 +41,16 @@
                             <a class="nav-link" href="{% url 'home' %}">Trang chủ <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle" href="{% url 'menu' %}" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Menu
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'bua-sang' %}">Bữa sáng</a>
-                            <a class="dropdown-item" href="{% url 'bua-trua' %}">Bữa trưa</a>
-                            <a class="dropdown-item" href="{% url 'bua-toi' %}">Bữa tối</a>
+                            <a class="dropdown-item" href="{% url 'food:bua-sang' %}">Bữa sáng</a>
+                            <a class="dropdown-item" href="{% url 'food:bua-trua' %}">Bữa trưa</a>
+                            <a class="dropdown-item" href="{% url 'food:bua-toi' %}">Bữa tối</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'do-uong' %}">Đồ uống</a>
-                            <a class="dropdown-item" href="{% url 'an-vat' %}">Ăn vặt</a>
+                            <a class="dropdown-item" href="{% url 'food:do-uong' %}">Đồ uống</a>
+                            <a class="dropdown-item" href="{% url 'food:an-vat' %}">Ăn vặt</a>
                             </div>
                         </li>
                         <li class="nav-item active">

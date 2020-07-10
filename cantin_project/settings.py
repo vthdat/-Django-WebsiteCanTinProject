@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'pages.apps.PagesConfig',
     'articles.apps.ArticlesConfig',
     'Food.apps.FoodConfig',
+    'cart.apps.CartConfig',
 
 ]
 
@@ -147,3 +148,5 @@ LOGOUT_REDIRECT_URL = 'home'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CART_SESSION_ID = 'cart'

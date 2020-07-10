@@ -21,7 +21,7 @@
                                     <div class="food-item-wrap">
                                         <div class="figure-wrap bg-image" data-image-src="{% static food.img.url|slice:"6:" %}"></div>
                                         <div class="content">
-                                            <h5><a href="">{{food.food_name}}</a></h5>
+                                            <h5><a href="{{ food.get_absolute_url }}">{{food.food_name}}</a></h5>
                                             <div class="product-name">{{food.description}}</div>
                                             <div class="price-btn-block"> <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span> <a href="" class="btn theme-btn-dash pull-right">Đặt ngay</a> </div>
                                         </div>											
@@ -43,7 +43,7 @@
                                     <div class="food-item-wrap">
                                         <div class="figure-wrap bg-image" data-image-src="{% static food.img.url|slice:"6:" %}"></div>
                                         <div class="content">
-                                            <h5><a href="">{{food.food_name}}</a></h5>
+                                            <h5><a href="{{ food.get_absolute_url }}">{{food.food_name}}</a></h5>
                                             <div class="product-name">{{food.description}}</div>
                                             <div class="price-btn-block"> <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span> <a href="" class="btn theme-btn-dash pull-right">Đặt ngay</a> </div>
                                         </div>											
