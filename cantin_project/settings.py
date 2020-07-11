@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'articles.apps.ArticlesConfig',
     'Food.apps.FoodConfig',
     'cart.apps.CartConfig',
+    'orders.apps.OrdersConfig',
 
 ]
 
