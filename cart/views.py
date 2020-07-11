@@ -17,6 +17,19 @@ def cart_add(request, food_id):
     return redirect('cart:cart_detail')
 
 @require_POST
+def cart_add_2(request, food_id):
+    cart = Cart(request)
+    food = get_object_or_404(Food, id=food_id)
+    form = CartAddFoodForm(request.POST)
+    if form.is_valid():
+        cd = form.cleaned_data
+        cart.add(food=food,
+                quantity=cd['quantity'],
+                override_quantity=cd['override'])
+    return redirect(request.META.get('HTTP_REFERER'))
+    
+
+@require_POST
 def cart_remove(request, food_id):
     cart = Cart(request)
     food = get_object_or_404(Food, id=food_id)

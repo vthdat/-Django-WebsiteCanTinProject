@@ -23,6 +23,7 @@
                                             <h5><a href="">{{food.food_name}}</a></h5>
                                             <div class="product-name">{{food.description}}</div>
                                             <div class="price-btn-block">
+                                                <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span>
                                                 <form action="{% url "cart:cart_add" food.id %}" method="post">
                                                     {{ cart_product_form }}
                                                     {% csrf_token %}
