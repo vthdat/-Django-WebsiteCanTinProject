@@ -9,6 +9,10 @@ from cart.cart import Cart
 class FoodListView(ListView):
     model = Food
     template_name = 'food_list.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['cart_product_form'] = CartAddFoodForm()
+        return context
 
 class FoodDetailView(DetailView):
     model = Food
@@ -33,6 +37,7 @@ class FoodBreakfastListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['food_list'] = Food.objects.filter(food_type='BR')
+        context['cart_product_form'] = CartAddFoodForm()
         return context
 
 class FoodLunchListView(ListView):
@@ -41,6 +46,7 @@ class FoodLunchListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['food_list'] = Food.objects.filter(food_type='LU')
+        context['cart_product_form'] = CartAddFoodForm()
         return context
 
 class FoodDinnerListView(ListView):
@@ -49,6 +55,7 @@ class FoodDinnerListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['food_list'] = Food.objects.filter(food_type='DI')
+        context['cart_product_form'] = CartAddFoodForm()
         return context
 
 class FoodBeverageListView(ListView):
@@ -57,6 +64,7 @@ class FoodBeverageListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['food_list'] = Food.objects.filter(food_type='BE')
+        context['cart_product_form'] = CartAddFoodForm()
         return context
 
 class FoodSnackListView(ListView):
@@ -65,6 +73,7 @@ class FoodSnackListView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['food_list'] = Food.objects.filter(food_type='SN')
+        context['cart_product_form'] = CartAddFoodForm()
         return context
 
     

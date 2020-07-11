@@ -60,7 +60,14 @@
                                         <div class="content">
                                             <h5><a href="{{ food.get_absolute_url }}">{{food.food_name}}</a></h5>
                                             <div class="product-name">{{food.description}}</div>
-                                            <div class="price-btn-block"> <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span> <a href="" class="btn theme-btn-dash pull-right">Đặt ngay</a> </div>
+                                            <div class="price-btn-block"> 
+                                                <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span>
+                                                <form action="{% url "cart:cart_add" food.id %}" method="post">
+                                                    {{ cart_product_form }}
+                                                    {% csrf_token %}
+                                                    <input type="submit" value="Thêm vào giỏ" class="btn theme-btn-dash pull-right">
+                                                </form>
+                                            </div>
                                         </div>											
                                     </div>
                                 </div>
@@ -82,7 +89,14 @@
                                         <div class="content">
                                             <h5><a href="{{ food.get_absolute_url }}">{{food.food_name}}</a></h5>
                                             <div class="product-name">{{food.description}}</div>
-                                            <div class="price-btn-block"> <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span> <a href="" class="btn theme-btn-dash pull-right">Đặt ngay</a> </div>
+                                            <div class="price-btn-block"> 
+                                                <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span> 
+                                                <form action="{% url "cart:cart_add" food.id %}" method="post">
+                                                    {{ cart_product_form }}
+                                                    {% csrf_token %}
+                                                    <input type="submit" value="Thêm vào giỏ" class="btn theme-btn-dash pull-right">
+                                                </form>
+                                            </div>
                                         </div>											
                                     </div>
                                 </div>
