@@ -4,6 +4,8 @@ from Food.models import Food
 from cart.forms import CartAddFoodForm
 from cart.cart import Cart
 
+from articles.models import Article
+
 # Create your views here.
 
 class HomePageView(TemplateView):
@@ -15,6 +17,7 @@ class HomePageView(TemplateView):
         context['cart_product_form'] = CartAddFoodForm()
         context['food_list'] = Food.objects.exclude(food_type='BE')[:6]
         context['beverage_list'] = Food.objects.filter(food_type='BE')[:6]
+        context['article_list'] = Article.objects.order_by('-date')[:3]
         return context
 
 class AboutPageView(TemplateView):

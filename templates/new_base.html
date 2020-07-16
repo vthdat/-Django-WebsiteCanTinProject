@@ -42,6 +42,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{% url 'home' %}">Trang chủ <span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'articles:list' %}"> Tin tức <span class="sr-only">(current)</span></a>
+                        </li>
                         <li class="nav-item dropdown active">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                             Menu
@@ -57,6 +60,7 @@
                                 <a class="dropdown-item" href="{% url 'food:an-vat' %}">Ăn vặt</a>
                             </div>
                         </li>
+                        
                         <li class="nav-item active">
                             <a class="nav-link" href="{% url 'about' %}"> Giới thiệu <span class="sr-only">(current)</span></a>
                         </li>
@@ -126,22 +130,22 @@
                         <div class="col-xs-12 col-sm-3 footer-logo-block color-gray">
                             <a href="#"> <img src="{% static 'images/logo.png' %}" alt="Footer logo"> </a> <span>Order Delivery &amp; Take-Out </span> </div>
                         <div class="col-xs-12 col-sm-2 about color-gray">
-                            <h5>About Us</h5>
+                            <h5>Thông tin</h5>
                             <ul>
-                                <li><a href="#">About us</a> </li>
-                                <li><a href="#">History</a> </li>
-                                <li><a href="#">Our Team</a> </li>
-                                <li><a href="#">We are hiring</a> </li>
+                                <li><a href="{% url 'about' %}">Giới thiệu chung</a> </li>
+                                <li><a href="{% url 'articles:list' %}">Tin tức</a> </li>
+                                <li><a href="{% url 'contact' %}">Liên hệ</a> </li>
+                                <li><a href="#">Tuyển dụng</a> </li>
                             </ul>
                         </div>
                         <div class="col-xs-12 col-sm-2 how-it-works-links color-gray">
-                            <h5>How it Works</h5>
+                            <h5>Thực Đơn</h5>
                             <ul>
-                                <li><a href="#">Enter your location</a> </li>
-                                <li><a href="#">Choose restaurant</a> </li>
-                                <li><a href="#">Choose meal</a> </li>
-                                <li><a href="#">Pay via credit card</a> </li>
-                                <li><a href="#">Wait for delivery</a> </li>
+                                <li><a href="{% url 'food:bua-sang' %}">Bữa sáng</a> </li>
+                                <li><a href="{% url 'food:bua-trua' %}">Bữa trưa</a> </li>
+                                <li><a href="{% url 'food:bua-toi' %}">Bữa tối</a> </li>
+                                <li><a href="{% url 'food:an-vat' %}">Đồ uống</a> </li>
+                                <li><a href="{% url 'food:do-uong' %}">Ăn vặt</a> </li>
                             </ul>
                         </div>
                     </div>
@@ -169,7 +173,7 @@
                             <div class="col-xs-12 col-sm-4 address color-gray">
                                 <h5>Địa chỉ</h5>
                                 <p>Căn tin UIT, khu phố 6, phường Linh Trung, quận Thủ Đức, Tp. Hồ Chí Minh</p>
-                                <h5>Phone: <a href="tel:+080000012222">080 000012 222</a></h5> </div>
+                                <h5>Phone: <a href="tel:+08123456123">08 123456 123</a></h5> </div>
                         </div>
                     </div>
                     <!-- bottom footer ends -->
