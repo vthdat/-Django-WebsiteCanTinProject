@@ -16,4 +16,10 @@ class HomePageView(TemplateView):
         context['food_list'] = Food.objects.exclude(food_type='BE')[:6]
         context['beverage_list'] = Food.objects.filter(food_type='BE')[:6]
         return context
+
+class AboutPageView(TemplateView):
+    template_name = 'about.html'
+
+class ContactPageView(TemplateView):
+    template_name = 'contact.html'
     

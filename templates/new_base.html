@@ -43,23 +43,25 @@
                             <a class="nav-link" href="{% url 'home' %}">Trang chủ <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item dropdown active">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                             Menu
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'food:bua-sang' %}">Bữa sáng</a>
-                            <a class="dropdown-item" href="{% url 'food:bua-trua' %}">Bữa trưa</a>
-                            <a class="dropdown-item" href="{% url 'food:bua-toi' %}">Bữa tối</a>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'food:do-uong' %}">Đồ uống</a>
-                            <a class="dropdown-item" href="{% url 'food:an-vat' %}">Ăn vặt</a>
+                                <a class="dropdown-item" href="{% url 'food:menu' %}">Tất cả</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'food:bua-sang' %}">Bữa sáng</a>
+                                <a class="dropdown-item" href="{% url 'food:bua-trua' %}">Bữa trưa</a>
+                                <a class="dropdown-item" href="{% url 'food:bua-toi' %}">Bữa tối</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{% url 'food:do-uong' %}">Đồ uống</a>
+                                <a class="dropdown-item" href="{% url 'food:an-vat' %}">Ăn vặt</a>
                             </div>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'home' %}"> Giới thiệu <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{% url 'about' %}"> Giới thiệu <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{% url 'home' %}"> Liên hệ <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{% url 'contact' %}"> Liên hệ <span class="sr-only">(current)</span></a>
                         </li>
                     </ul>
 
@@ -70,7 +72,7 @@
                             {% with total_items=cart|length %}
                                 {% if total_items > 0 %}
                                     <li class="nav-item">
-                                    <a href="{% url "cart:cart_detail" %}">
+                                    <a href="{% url "cart:cart_detail" %}" >
                                         Giỏ hàng của bạn có {{ total_items }} món{{ total_items|pluralize }},
                                         {{ cart.get_total_price|floatformat|intcomma }} vnđ
                                     </a>
@@ -140,16 +142,6 @@
                                 <li><a href="#">Choose meal</a> </li>
                                 <li><a href="#">Pay via credit card</a> </li>
                                 <li><a href="#">Wait for delivery</a> </li>
-                            </ul>
-                        </div>
-                        <div class="col-xs-12 col-sm-2 pages color-gray">
-                            <h5>Pages</h5>
-                            <ul>
-                                <li><a href="#">Search results page</a> </li>
-                                <li><a href="#">User Sing Up Page</a> </li>
-                                <li><a href="#">Pricing page</a> </li>
-                                <li><a href="#">Make order</a> </li>
-                                <li><a href="#">Add to cart</a> </li>
                             </ul>
                         </div>
                     </div>
