@@ -9,35 +9,118 @@
 {% block content %}
 <section class="popular">
             <div class="container">
-                <div class="food">
+                <div class="breakfast-menu">
                     <div class="title text-xs-center m-b-30">
-                        <h2>Ăn gì hôm nay?</h2>
+                        <h2>Ăn gì sáng hôm nay?</h2>
                         <p class="lead">Hãy chọn món ăn yêu thích của bạn và đặt hàng ngay</p>
                     </div>
                     <div class="row">
-                        {% for food in food_list %}
-                            {% if food.food_type != 'BE' %}
-                                <div class="col-xs-12 col-sm-6 col-md-4 food-item">
-                                    <div class="food-item-wrap">
-                                        <div class="figure-wrap bg-image" data-image-src="{% static food.img.url|slice:"6:" %}"></div>
-                                        <div class="content">
-                                            <h5><a href="{{ food.get_absolute_url }}">{{food.food_name}}</a></h5>
-                                            <div class="product-name">{{food.description}}</div>
-                                            <div class="price-btn-block">
-                                                <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span>
-                                                <form action="{% url "cart:cart_add" food.id %}" method="post">
-                                                    {{ cart_product_form }}
-                                                    {% csrf_token %}
-                                                    <input type="submit" value="Thêm vào giỏ" class="btn theme-btn-dash pull-right">
-                                                </form>
-                                            </div>
-                                        </div>											
-                                    </div>
+                        {% for food in breakfast_list %}
+                            <div class="col-xs-12 col-sm-6 col-md-4 food-item">
+                                <div class="food-item-wrap">
+                                    <div class="figure-wrap bg-image" data-image-src="{% static food.img.url|slice:"6:" %}"></div>
+                                    <div class="content">
+                                        <h5><a href="{{ food.get_absolute_url }}">{{food.food_name}}</a></h5>
+                                        <div class="product-name">{{food.description}}</div>
+                                        <div class="price-btn-block">
+                                            <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span>
+                                            <form action="{% url "cart:cart_add" food.id %}" method="post">
+                                                {{ cart_product_form }}
+                                                {% csrf_token %}
+                                                <input type="submit" value="Thêm vào giỏ" class="btn theme-btn-dash pull-right">
+                                            </form>
+                                        </div>
+                                    </div>											
                                 </div>
-                            {% endif %}
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
+
+                <div class="breakfast-menu">
+                    <div class="title text-xs-center m-b-30">
+                        <h2>Ăn gì trưa hôm nay?</h2>
+                        <p class="lead">Hãy chọn món ăn yêu thích của bạn và đặt hàng ngay</p>
+                    </div>
+                    <div class="row">
+                        {% for food in lunch_list %}
+                            <div class="col-xs-12 col-sm-6 col-md-4 food-item">
+                                <div class="food-item-wrap">
+                                    <div class="figure-wrap bg-image" data-image-src="{% static food.img.url|slice:"6:" %}"></div>
+                                    <div class="content">
+                                        <h5><a href="{{ food.get_absolute_url }}">{{food.food_name}}</a></h5>
+                                        <div class="product-name">{{food.description}}</div>
+                                        <div class="price-btn-block">
+                                            <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span>
+                                            <form action="{% url "cart:cart_add" food.id %}" method="post">
+                                                {{ cart_product_form }}
+                                                {% csrf_token %}
+                                                <input type="submit" value="Thêm vào giỏ" class="btn theme-btn-dash pull-right">
+                                            </form>
+                                        </div>
+                                    </div>											
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="breakfast-menu">
+                    <div class="title text-xs-center m-b-30">
+                        <h2>Ăn gì tối hôm nay?</h2>
+                        <p class="lead">Hãy chọn món ăn yêu thích của bạn và đặt hàng ngay</p>
+                    </div>
+                    <div class="row">
+                        {% for food in dinner_list %}
+                            <div class="col-xs-12 col-sm-6 col-md-4 food-item">
+                                <div class="food-item-wrap">
+                                    <div class="figure-wrap bg-image" data-image-src="{% static food.img.url|slice:"6:" %}"></div>
+                                    <div class="content">
+                                        <h5><a href="{{ food.get_absolute_url }}">{{food.food_name}}</a></h5>
+                                        <div class="product-name">{{food.description}}</div>
+                                        <div class="price-btn-block">
+                                            <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span>
+                                            <form action="{% url "cart:cart_add" food.id %}" method="post">
+                                                {{ cart_product_form }}
+                                                {% csrf_token %}
+                                                <input type="submit" value="Thêm vào giỏ" class="btn theme-btn-dash pull-right">
+                                            </form>
+                                        </div>
+                                    </div>											
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="breakfast-menu">
+                    <div class="title text-xs-center m-b-30">
+                        <h2>Ăn vặt gì hôm nay?</h2>
+                        <p class="lead">Hãy chọn món ăn yêu thích của bạn và đặt hàng ngay</p>
+                    </div>
+                    <div class="row">
+                        {% for food in snack_list %}
+                            <div class="col-xs-12 col-sm-6 col-md-4 food-item">
+                                <div class="food-item-wrap">
+                                    <div class="figure-wrap bg-image" data-image-src="{% static food.img.url|slice:"6:" %}"></div>
+                                    <div class="content">
+                                        <h5><a href="{{ food.get_absolute_url }}">{{food.food_name}}</a></h5>
+                                        <div class="product-name">{{food.description}}</div>
+                                        <div class="price-btn-block">
+                                            <span class="price">{{ food.price|floatformat|intcomma }} vnđ</span>
+                                            <form action="{% url "cart:cart_add" food.id %}" method="post">
+                                                {{ cart_product_form }}
+                                                {% csrf_token %}
+                                                <input type="submit" value="Thêm vào giỏ" class="btn theme-btn-dash pull-right">
+                                            </form>
+                                        </div>
+                                    </div>											
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
                 <div class="beverage">
                     <div class="title text-xs-center m-b-30">
                         <h2>Uống gì hôm nay?</h2>

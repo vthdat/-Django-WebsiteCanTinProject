@@ -7,16 +7,49 @@
 {% block title %} {{ object.food_name}} {% endblock title %}
 
 {% block content %}
-    <div class="product-detail">
-        <img src=" {% static food.img.url|slice:"6:" %} ">
-        <h1>{{ object.food_name }}</h1>
-        <p class="price">${{ object.price|floatformat|intcomma }}</p>
-        <form action="{% url "cart:cart_add" object.id %}" method="post">
-            {{ cart_product_form }}
-            {% csrf_token %}
-            <input type="submit" value="Thêm vào giỏ" class="btn btn-warning">
-        </form>
-        {{ object.description|linebreaks }}
+    <div class="container">
+        <br>
+        <a href="{% url "food:menu" %}" class="btn btn-warning ml-auto"> < Quay lại</a>
+        <!-- item info -->
+        <h1 class="my-4">{{ object.food_name }}</h1>
+
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-fluid" src="{% static food.img.url|slice:"6:" %}" alt="">
+            </div>
+
+            <div class="col-md-4">
+                <h3 class="my-3">{{ object.food_name }}</h3>
+                <h3 class="my-3">{{ object.price|floatformat|intcomma }} vnd</h3>
+                <form action="{% url "cart:cart_add" object.id %}" method="post">
+                    {{ cart_product_form }}
+                    {% csrf_token %}
+                    <input type="submit" value="Thêm vào giỏ" class="btn btn-warning">
+                </form>
+            </div>
+        </div>
+        <h1 class = "my-4">Thông tin sản phẩm</h1>
+        <p>{{ object.description }}</p>
+
+        <!-- related -->
+
+        <h3 class="my-4">Các món ăn khác bạn có thể thích</h3>
+
+        <div class="row">
+            {% for food in food_list %}
+                <div class="col-md-3 col-sm-6 mb-4">
+                    <a href="#">
+                        <img class="img-fluid" width="500" height="500" src="{% static food.img.url|slice:"6:" %}" alt="">
+                        <h2 class="my-4">{{ food.food_name }}</h1>
+                        <small>{{ food.price|floatformat|intcomma }} vnd</small>
+                    </a>
+                </div>
+            {% endfor %}
+
+        </div>
+
+
     </div>
 {% endblock %}
 
